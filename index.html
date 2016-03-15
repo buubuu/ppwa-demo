@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather PWA</title>
+  <!-- Insert link to styles here -->
+  <link rel="stylesheet" type="text/css" href="styles/inline.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1 class="header__title">Weather PWA</h1>
+    <button id="butRefresh" class="headerButton"></button>
+    <button id="butAdd" class="headerButton"></button>
+  </header>
+
+  <main class="main" >
+    <!-- Insert forecast-card.html here -->
+        <div class="card cardTemplate weather-forecast" >
+      <div class="city-key" hidden></div>
+      <div class="location">Nigeria</div>
+      <div class="date">11/3/4013</div>
+      <div class="description">sfgggfefdfsfrf</div>
+      <div class="current">
+        <div class="visual">
+          <div class="icon partly-cloudy-day"></div>
+          <div class="temperature">
+            <span class="value">39</span><span class="scale">°F</span>
+          </div>
+        </div>
+        <div class="description">
+          <div class="feels-like">
+            <span class="value"></span>39<span class="scale">°F</span>
+          </div>
+          <div class="precip">40%</div>
+          <div class="humidity">77%</div>
+          <div class="wind">
+            <span class="value">2</span>
+            <span class="scale">mph</span>
+            <span class="direction">34</span>
+          </div>
+        </div>
+      </div>
+      <div class="future">
+        <div class="oneday">
+          <div class="date">Sun</div>
+          <div class="icon fog"></div>
+          <div class="temp-high">
+            <span class="value">63</span>°
+          </div>
+          <div class="temp-low">
+            <span class="value">33</span>°
+          </div>
+        </div>
+        <div class="oneday">
+          <div class="date">Mon</div>
+          <div class="icon wind"></div>
+          <div class="temp-high">
+            <span class="value">79</span>°
+          </div>
+          <div class="temp-low">
+            <span class="value">58</span>°
+          </div>
+        </div>
+        <div class="oneday">
+          <div class="date">Tue</div>
+          <div class="icon sleet"></div>
+          <div class="temp-high">
+            <span class="value">80</span>°
+          </div>
+          <div class="temp-low">
+            <span class="value">45</span>°
+          </div>
+        </div>
+        <div class="oneday">
+          <div class="date">Wed</div>
+          <div class="icon snow"></div>
+          <div class="temp-high">
+            <span class="value">90</span>°
+          </div>
+          <div class="temp-low">
+            <span class="value">56</span>°
+          </div>
+        </div>
+        <div class="oneday">
+          <div class="date">Thur</div>
+          <div class="icon rain"></div>
+          <div class="temp-high">
+            <span class="value">79</span>°
+          </div>
+          <div class="temp-low">
+            <span class="value">24</span>°
+          </div>
+        </div>
+        <div class="oneday">
+          <div class="date">Fri</div>
+          <div class="icon clear-night"></div>
+          <div class="temp-high">
+            <span class="value">88</span>°
+          </div>
+          <div class="temp-low">
+            <span class="value">34</span>°
+          </div>
+        </div>
+        <div class="oneday">
+          <div class="date">Sat</div>
+          <div class="icon clear-day"></div>
+          <div class="temp-high">
+            <span class="value">78</span>°
+          </div>
+          <div class="temp-low">
+            <span class="value">24</span>°
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="dialog-container">
+    <!-- Insert add-new-city-dialog.html here -->
+    <div class="dialog">
+      <div class="dialog-title">Add new city</div>
+      <div class="dialog-body">
+        <select id="selectCityToAdd">
+          <option value="austin">Austin, TX</option>
+          <option value="boston">Boston, MA</option>
+          <option value="chicago">Chicago, IL</option>
+          <option value="portland">Portland, OR</option>
+          <option value="sanfrancisco">San Francisco, CA</option>
+          <option value="seattle">Seattle, WA</option>
+        </select>
+      </div>
+      <div class="dialog-buttons">
+        <button id="butAddCity" class="button">Add</button>
+        <button id="butAddCancel" class="button">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="loader">
+    <svg viewBox="0 0 32 32" width="32" height="32">
+      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
+  </div>
+
+  <!-- Insert link to app.js here -->
+  <script src="scripts/app.js"></script>
+  
+</body>
+</html>
