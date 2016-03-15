@@ -10,7 +10,8 @@
     cardTemplate: document.querySelector('.cardTemplate'),
     container: document.querySelector('.main'),
     addDialog: document.querySelector('.dialog-container'),
-    daysOfWeek: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    daysOfWeek: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    hasRequestPending: false
   };
 
 
@@ -132,6 +133,23 @@
     var url = 'https://publicdata-weather.firebaseio.com/';
     url += key + '.json';
     // Make the XHR to get the data, then update the card
+    if ('caches' in window) {  
+	  caches.match(url).then(function(response) {  
+	    if (response) {  
+	      response.json().then(function(json) {  
+	        // Only update if the XHR is still pending, otherwise the XHR  
+	        // has already returned and provided the latest data.  
+	        if (app.hasRequestPending) {  
+	          console.log('updated from cache');  
+	          json.key = key;  
+	          json.label = label;  
+	          app.updateForecastCard(json);  
+	        }  
+	      });  
+	    }  
+	  });  
+	}
+    
     var request = new XMLHttpRequest();
     request.onreadystatechange = function() {
       if (request.readyState === XMLHttpRequest.DONE) {
